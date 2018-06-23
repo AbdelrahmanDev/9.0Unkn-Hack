@@ -1,0 +1,177 @@
+HTML -----> 
+<html>
+    <head lang="en">
+        <title>Hello In JavaScript DOM</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div>This Program Auto-Change The Inputs 'only click on buttons' &amp; Accept Only-One Sign </div>
+        <span>1st...&nbsp;</span>
+        <input id='fInput' type='input'><br>
+        <span>2nd...</span>
+        <input id='sInput' type='input'><br>
+        <button id='1' value=1 onclick="but1()">1</button>
+        <button id='2' value=2 onclick="but2()">2</button>
+        <button id='3' value=3 onclick="but3()">3</button><br>
+        <button id='4' value=4 onclick="but4()">4</button>
+        <button id='5' value=5 onclick="but5()">5</button>
+        <button id='6' value=6 onclick="but6()">6</button><br>
+        <button id='7' value=7 onclick="but7()">7</button>
+        <button id='8' value=8 onclick="but8()">8</button>
+        <button id='9' value=9 onclick="but9()">9</button>
+        <button id='0' value=0 onclick="but0()">0</button><br>
+        <button id='+' value='+' onclick="SignP()">+</button>
+        <button id='-' value='-' onclick="SignM()">-</button>
+        <button id='*' value='*' onclick="SignMt()">*</button>
+        <button id='/' value='/' onclick="SignD()">/</button>
+        <button id='%' value='%' onclick="SignMod()">%</button>
+        <button id='=' onclick="Eql()">=</button><br>
+        <div id='sign'></div>
+        <div id='div'>result here...</div>
+        <script src="JavaScript.js"></script>
+    </body>
+</html>
+--------------------------------------------------------------------------
+JS --->
+/*global console, alert, prompet*/
+var sign ,
+    myButton1     = document.getElementById('1'),
+    myButton2     = document.getElementById('2'),
+    myButton3     = document.getElementById('3'),
+    myButton4     = document.getElementById('4'),
+    myButton5     = document.getElementById('5'),
+    myButton6     = document.getElementById('6'),
+    myButton7     = document.getElementById('7'),
+    myButton8     = document.getElementById('8'),
+    myButton9     = document.getElementById('9'),
+    myButton0     = document.getElementById('0'),
+    myButtonPlus  = document.getElementById('+'),
+    myButtonMins  = document.getElementById('-'),
+    myButtonMult  = document.getElementById('*'),
+    myButtonDiv   = document.getElementById('/'),
+    myButtonMod   = document.getElementById('%'),
+    myButtonEql   = document.getElementById('='),
+    myFInput      = document.getElementById('fInput'),
+    mySInput      = document.getElementById('sInput'),
+    myDiv         = document.getElementById('div'),
+    mySDiv        = document.getElementById('sign');
+
+    // [=] => Button
+
+function Eql(){
+    if(sign === '+')
+        Sum();
+    else if(sign === '-')
+        Min();
+    else if(sign === '*')
+        Multi();
+    else if(sign === '/')
+        Divis();
+    else if(sign == '%')
+        Mods();
+        
+}
+
+    //Calcolation Functions
+
+function Sum(){
+    myDiv.innerHTML = 'The Number ' + Number(myFInput.value)+ ' + ' + Number(mySInput.value) + ' = ' + (Number(myFInput.value) + Number(mySInput.value));
+}
+function Min(){
+    myDiv.innerHTML = 'The Number ' + Number(myFInput.value) + ' - ' + Number(mySInput.value) + ' = ' + (Number(myFInput.value) - Number(mySInput.value));
+}
+    function Multi(){
+    myDiv.innerHTML = 'The Number ' + Number(myFInput.value) + ' * ' + Number(mySInput.value) + ' = ' + (Number(myFInput.value) * Number(mySInput.value));
+}
+function Divis(){
+    myDiv.innerHTML = 'The Number ' + Number(myFInput.value) + ' / ' + Number(mySInput.value) + ' = ' + (Number(myFInput.value) / Number(mySInput.value));
+}
+function Mods(){
+    myDiv.innerHTML = 'The Number ' + Number(myFInput.value) + ' % ' + Number(mySInput.value) + ' = ' + (Number(myFInput.value) % Number(mySInput.value));
+}
+
+    //Buttons
+    
+function but0(){
+    if(mySDiv.innerHTML === '')
+        myFInput.value += myButton0.value;
+    else
+        mySInput.value += myButton0.value;
+}
+function but1(){
+    if(mySDiv.innerHTML === '')
+        myFInput.value += myButton1.value;
+    else
+        mySInput.value += myButton1.value;
+}
+function but2(){
+    if(mySDiv.innerHTML === '')
+        myFInput.value += myButton2.value;
+    else
+        mySInput.value += myButton2.value;
+}
+function but3(){
+    if(mySDiv.innerHTML === '')
+        myFInput.value += myButton3.value;
+    else
+        mySInput.value += myButton3.value;
+}
+function but4(){
+    if(mySDiv.innerHTML === '')
+        myFInput.value += myButton4.value;
+    else
+        mySInput.value += myButton4.value;
+}
+function but5(){
+    if(mySDiv.innerHTML === '')
+        myFInput.value += myButton5.value;
+    else
+        mySInput.value += myButton5.value;
+}
+function but6(){
+    if(mySDiv.innerHTML === '')
+        myFInput.value += myButton6.value;
+    else
+        mySInput.value += myButton6.value;
+}
+function but7(){
+    if(mySDiv.innerHTML === '')
+        myFInput.value += myButton7.value;
+    else
+        mySInput.value += myButton7.value;
+}
+function but8(){
+    if(mySDiv.innerHTML === '')
+        myFInput.value += myButton8.value;
+    else
+        mySInput.value += myButton8.value;
+}
+function but9(){
+    if(mySDiv.innerHTML === '')
+        myFInput.value += myButton9.value;
+    else
+        mySInput.value += myButton9.value;
+}
+
+    //For Show
+    
+    function SignMt(){
+    mySDiv.innerHTML = "The Sign Is : " + myButtonMult.value;
+    sign = myButtonMult.value;
+}
+function SignD(){
+    mySDiv.innerHTML = "The Sign Is : " + myButtonDiv.value;
+    sign = myButtonDiv.value;
+}
+function SignP(){
+    mySDiv.innerHTML = "The Sign Is : " + myButtonPlus.value;
+    sign = myButtonPlus.value;
+}
+function SignM(){
+    mySDiv.innerHTML = "The Sign Is : " + myButtonMins.value;
+    sign = myButtonMins.value;
+}
+function SignMod(){
+    mySDiv.innerHTML = "The Sign Is : " + myButtonMod.value;
+    sign = myButtonMod.value;
+}
