@@ -1,0 +1,100 @@
+HTML
+----------------------------------------------------------------
+<html>
+    <head lang="en">
+        <title>Hello In JavaScript DOM</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h5>This Script Can Sort Between 3 Inputs Words</h5>
+        <input id='in1' value='1st here...'><br>
+        <input id='in2' value='2nd here...'><br>
+        <input id='in3' value='3rd here...'><br>
+        <button onclick='Button()'>Click Here For Sorting</button>
+        <div id='div'></div>
+        <script src="JavaScript.js"></script>
+    </body>
+</html>
+------------------------------------------------------------------
+JS
+------------------------------------------------------------------
+var myDiv = document.getElementById('div'),
+    myFInput = document.getElementById('in1').value,
+    mySInput = document.getElementById('in2').value,
+    myTInput = document.getElementById('in3').value;
+
+function Button(){
+    
+    var small = Math.min(myFInput.length, mySInput.length, myTInput.length),
+        count;
+    for(count = 0; count < small; count += 1){ // par, para, hello
+            if(myFInput.charCodeAt(myFInput.charAt(count)) < mySInput.charCodeAt(mySInput.charAt(count)) && myFInput.charCodeAt(myFInput.charAt(count)) < myTInput.charCodeAt(myTInput.charAt(count))){
+                
+                myDiv.innerHTML += myFInput + "</br>" + printValue(mySInput, myTInput);
+                break;
+                
+            } // First Input 
+             else if(mySInput.charCodeAt(mySInput.charAt(count)) < myFInput.charCodeAt(myFInput.charAt(count)) && mySInput.charCodeAt(mySInput.charAt(count)) < myTInput.charCodeAt(myTInput.charAt(count))) {
+                 
+                myDiv.innerHTML += mySInput + "</br>"+ printValue(myFInput, myTInput);
+                break;
+                 
+             }  // Second Input
+              else if(myTInput.charCodeAt(myTInput.charAt(count)) < mySInput.charCodeAt(mySInput.charAt(count)) && myTInput.charCodeAt(myTInput.charAt(count)) < myFInput.charCodeAt(myFInput.charAt(count))){
+                  
+                myDiv.innerHTML += myTInput + "</br>" + printValue(myFInput, mySInput);
+                break;
+                  
+              } // Third Input 
+              else if (myFInput.charCodeAt(myFInput.charAt(count)) === mySInput.charCodeAt(mySInput.charAt(count)) && (myFInput.charCodeAt(myFInput.charAt(count)) !== myTInput.charCodeAt(myTInput.charAt(count)))){ 
+                  
+                myDiv.innerHTML += printValue(myFInput, mySInput) + "</br>" + myTInput;
+                  
+                break;
+              } // First & Second
+              else if(myFInput.charCodeAt(myFInput.charAt(count)) === myTInput.charCodeAt(myTInput.charAt(count)) && (myFInput.charCodeAt(myFInput.charAt(count)) !== mySInput.charCodeAt(mySInput.charAt(count)))){
+                  
+                myDiv.innerHTML += printValue(myFInput, myTInput) + "</br>" + mySInput;
+                  
+                break;
+              } // First & Third
+              else if(mySInput.charCodeAt(mySInput.charAt(count)) === myTInput.charCodeAt(myTInput.charAt(count)) && (mySInput.charCodeAt(mySInput.charAt(count)) !== myFInput.charCodeAt(myFInput.charAt(count)))){
+                  
+                myDiv.innerHTML += printValue(myTInput, mySInput) + "</br>" + myFInput;
+                  
+                break;
+              } // Second & Third
+        }
+}
+//--------------------------------Functions---------------------------------\\
+
+function printValue(fValue, sValue){
+
+    var small = Math.min(fValue.length, sValue.length),
+        count;
+
+    // par, para 'for example'
+    for(count = 0; count < small; count += 1){
+
+        if(fValue.charCodeAt(fValue.charAt(count)) < sValue.charCodeAt(sValue.charAt(count))){
+
+            return (fValue + "</br>" + sValue);
+            
+        }else if (sValue.charCodeAt(sValue.charAt(count)) < fValue.charCodeAt(fValue.charAt(count))){
+            
+            return (sValue + "</br>" + fValue);
+            
+        }else if(small - count == 1){
+            
+            if(fValue.length < sValue.length){
+                
+                return (fValue + "</br>" + sValue);
+                
+            }else{
+                
+                return (sValue + "</br>" + fValue);
+                
+                }    
+            } 
+        }          
+    }
