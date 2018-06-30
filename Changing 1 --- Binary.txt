@@ -1,0 +1,62 @@
+HTML
+--------------------------------------------------------------------------
+<html>
+    <head lang="en">
+        <title>Hello In JavaScript DOM</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h5>This Script Can Change From Dicimal To Binary</h5>
+        <input id='input' value='here...'><br>
+        <button onclick='Button()'>Click Here For Changing</button>
+        <div id='div'></div>
+        <script src="JavaScript.js"></script>
+    </body>
+</html>
+--------------------------------------------------------------------------
+JS
+--------------------------------------------------------------------------
+var count = 0,
+    
+    string = '',
+
+    myDiv = document.getElementById('div'),
+    
+    myInputValue = document.getElementById('input').value;
+
+function Button(){
+    
+    var number = Number(myInputValue);
+    
+    while (count != number){
+        
+        if(number % 2 == 0){
+            
+            string += 0; // All New Binary In String
+            
+            number /= 2;
+            
+            
+        }else{
+            
+            string += 1; // All New Binary In String
+            
+            number /= 2;
+            
+            number -= 0.5; // For Float Nums 'not like c++ int, float, double'
+            
+        }
+        
+    }
+    
+    var stringLength = string.length;
+    
+    for(count = stringLength - 1; count >= 0; count -= 1){
+        
+        myDiv.innerHTML += string[count];
+        
+    }
+    
+    myDiv.innerHTML += "</br>" + 'All Changes Will Come Soon :)' + "</br>";
+    
+}
