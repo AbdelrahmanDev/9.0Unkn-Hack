@@ -1,0 +1,168 @@
+HTML 
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Game With JS</title>
+		<style type="text/css">
+			#firstDiv {
+				background-color: #022;
+				width: 690px;height: 610px;
+			}
+			#secondDiv {
+				background-color: #220;
+				width: 666px;height: 610px;
+				float: right;margin-top: -610px;
+				text-align: right;
+			}
+			.txt {
+				font-size: 40px; 
+				text-shadow: 10px;
+				color: #FAA;
+			}
+			tr td img {
+				width: 100px;
+				height: 100px;
+				z-index: 2;
+				margin: 1px
+			}
+			#Result {
+				color: #000;
+				font-size: 60px;
+				text-shadow: 3px 3px 3px #FFF;
+				text-align: center;
+				margin-top:-300px 
+			}
+			#img1 {
+				width: 150px;
+				height: 150px;
+				margin-left: 200px;
+			}
+			#img2 {
+				width: 150px;
+				height: 150px;
+			}
+			#Button {
+				width: 120px;
+				height: 70px;
+				font-size: 50px;
+				margin-left: 610px;
+				color: #421;
+				text-shadow: 3px 3px 5px gray;
+				background-color: #050;
+				border-style: dotted;
+				border-radius: 10px;
+				cursor: pointer;
+			}
+			#bot {
+				background-color: #000;
+			}
+			.score {
+				font-size: 30px;
+				color: gray;
+				text-shadow: 2px 3px 4px #453628;
+			}
+		</style>
+	</head>
+	<body>
+		<div style="text-align: center;background-color: #F00 ; margin-top: -10px; width: 100%">
+			<span id="firstPlayer" class="score"></span> : <span id="secondPlayer" class="score"></span>
+		</div>
+		<div id="bot"><button id="Button" onclick="compare()">Yes</button></div>
+		<div id="firstDiv">
+			<table>
+				<tr><td class="txt">First Player's Name </td></tr>
+				<tr><td><input type="text" id="firstValue" placeholder="The Name : " style="width: 300px"></td></tr>
+				<tr><td class="txt">First Player's Value </td></tr>
+				<tr><td><input type="password" id="first" placeholder="Rock -> R , Paper -> P , Scissors -> S" style="width: 300px"></td></tr>
+				<tr>
+					<td><img src="Rock.jpg"><img src="Paper.jpg"><img src="Scissors.jpg"></td>
+				</tr>
+				<tr><td><div id="img1"></div></td></tr>
+			</table>
+		</div>
+		<div id="secondDiv">
+			<table align="right">
+				<tr><td class="txt">Second Player's Name </td></tr>
+				<tr><td><input type="text" id="secondValue" placeholder="The Name : " style="width: 300px"></td></tr>
+				<tr><td class="txt">Second Player's Value </td></tr>
+				<tr><td><input type="password" id="second" placeholder="Rock -> R , Paper -> P , Scissors -> S" style="width: 300px"></td></tr>
+				<tr>
+					<td><img src="Rock.jpg"><img src="Paper.jpg"><img src="Scissors.jpg"></td>
+				</tr>
+				<tr><td><div id="img2"></div></td></tr>
+			</table>
+		</div>
+		<div id="Result">Who Is Winner ??!</div>
+		<script type="text/javascript" src="JS.js"></script>
+	</body>
+</html>
+------------------------------
+JS
+var 
+firstName = document.getElementById("firstValue")
+, secondName = document.getElementById("secondValue")
+, firstValue = document.getElementById("first")
+, secondValue = document.getElementById("second")
+, result
+, firstCount = 0
+, secondCount = 0;
+
+compare();
+
+function compare()
+{
+	if(firstValue.value === "R" && secondValue.value === "P")
+	{
+		document.getElementById("img1").innerHTML="<img src='Rock.jpg'>";
+		document.getElementById("img2").innerHTML="<img src='Paper.jpg'>";
+		result = "The Winner Is : " + secondName.value;
+		document.getElementById("Result").innerHTML = result;
+		++secondCount;
+	}
+	else if(firstValue.value === "P" && secondValue.value === "S")
+	{
+		document.getElementById("img1").innerHTML="<img src='Paper.jpg'>";
+		document.getElementById("img2").innerHTML="<img src='Scissors.jpg'>";
+		result = "The Winner Is : " + secondName.value;
+		document.getElementById("Result").innerHTML = result;
+		++secondCount;
+	}		
+	else if(firstValue.value === "S" && secondValue.value === "R")
+	{
+		document.getElementById("img1").innerHTML="<img src='Scissors.jpg'>";
+		document.getElementById("img2").innerHTML="<img src='Rock.jpg'>";
+		result = "The Winner Is : " + secondName.value;
+		document.getElementById("Result").innerHTML = result;
+		++secondCount;
+	}
+	else if(firstValue.value === "P" && secondValue.value === "R")
+	{
+		document.getElementById("img1").innerHTML="<img src='Paper.jpg'>";
+		document.getElementById("img2").innerHTML="<img src='Rock.jpg'>";
+		result = "The Winner Is : " + firstName.value;
+		document.getElementById("Result").innerHTML = result;
+		++firstCount;
+	}
+	else if(firstValue.value === "S" && secondValue.value === "P")
+	{
+		document.getElementById("img1").innerHTML="<img src='Scissors.jpg'>";
+		document.getElementById("img2").innerHTML="<img src='Paper.jpg'>";
+		result = "The Winner Is : " + firstName.value;
+		document.getElementById("Result").innerHTML = result;
+		++firstCount;
+	}		
+	else if(firstValue.value === "R" && secondValue.value === "S")
+	{
+		document.getElementById("img1").innerHTML="<img src='Rock.jpg'>";
+		document.getElementById("img2").innerHTML="<img src='Scissors.jpg'>";
+		result = "The Winner Is : " + firstName.value;
+		document.getElementById("Result").innerHTML = result;
+		++firstCount;
+	}	
+	else if((firstValue.value === "R" && secondValue.value === "R" ) || (firstValue.value === "S" && secondValue.value === "S" ) ||(firstValue.value === "P" && secondValue.value === "P" ))
+	{
+		document.getElementById("Result").innerHTML = "Again Both ";
+	}
+	document.getElementById("firstPlayer").innerHTML = firstCount;
+	document.getElementById("secondPlayer").innerHTML = secondCount;
+}
