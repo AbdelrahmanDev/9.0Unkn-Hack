@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>FUE-Courses</title>
+		<link rel="stylesheet" type="text/css" href="Style.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+	</head>
+	<body>
+		<!-- Starting The Nav Par-->
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<span><img src="431bf206105bcb96529c14e64deab116.png" style="width: 70px; height: 60px"></span>
+			<span class="navbar-brand" style="padding-right: 540px"><strong>FUE-Courses</strong></span>
+			<div class="collapse navbar-collapse">
+				<ul class="navbar-nav mr-auto">
+					<li><strong><a class="nav-link" href="file:///C:/Users/Aragami/Desktop/FUE-Project/index.html#carouselExampleIndicators">Home</a></strong></li>
+					<li><strong><a class="nav-link" href="file:///C:/Users/Aragami/Desktop/FUE-Project/logUser.html">Login</a></strong></li>
+					<li><strong><a class="nav-link" href="file:///C:/Users/Aragami/Desktop/FUE-Project/registration.html">Register</a></strong></li>
+					<li><strong><a class="nav-link" href="file:///C:/Users/Aragami/Desktop/FUE-Project/Tobics.html">Courses</a></strong></li> 
+					<form class="form-inline my-4 my-lg-0">
+						<li>
+							
+							<div class="dropdown" >
+							    <button class="btn btn-secondary dropdown-toggle" type="button"  data-toggle="dropdown" >
+							    	Look at here...
+							    </button>
+							    <div class="dropdown-menu" >
+								    <a class="dropdown-item" href="file:///C:/Users/Aragami/Desktop/FUE-Project/Tobics.html">Courses</a>
+								    <a class="dropdown-item" href="file:///C:/Users/Aragami/Desktop/FUE-Project/registration.html">Register</a>
+								    <a class="dropdown-item" href="file:///C:/Users/Aragami/Desktop/FUE-Project/logUser.html">Login</a>
+								    <a class="dropdown-item" href="file:///C:/Users/Aragami/Desktop/FUE-Project/Instructor.html">Instructors</a>
+								    <a class="dropdown-item" href="file:///C:/Users/Aragami/Desktop/FUE-Project/AllCoursesGaming.html">Gaming</a>
+								    <a class="dropdown-item" href="file:///C:/Users/Aragami/Desktop/FUE-Project/Tobics.html">Security</a>
+								    <a class="dropdown-item" href="file:///C:/Users/Aragami/Desktop/FUE-Project/allCoursesMath.html">Math</a>
+								    <a class="dropdown-item" href="file:///C:/Users/Aragami/Desktop/FUE-Project/allCoursesDatastructure.html">Datastructure</a>
+								    <a class="dropdown-item" href="file:///C:/Users/Aragami/Desktop/FUE-Project/allCoursesDatabase.html">Database</a>
+								    <a class="dropdown-item" href="file:///C:/Users/Aragami/Desktop/FUE-Project/allCoursesOS.html">OS</a>
+								    <a class="dropdown-item" href="file:///C:/Users/Aragami/Desktop/FUE-Project/allCoursesNetwork.html">Network</a>
+							    </div>
+							</div>
+								
+							
+						</li>
+					</form>
+					
+				</ul>
+			</div>
+		</nav>
+							<!-- Ending The Nav Par-->
+							<!-- Starting The Register Body-->
+
+			<div class="regForm"> 
+				<form action="file:///C:/Users/Aragami/Desktop/FUE-Project/WhoAreYou.html" method="POST">
+					<table width="100%">
+						<thead>
+							<th align="center" ><h3 class="alert alert-dark">Registration <span class="badge badge-secondary" style="color:#C80000;">FUE</span> </h3></th>
+						</thead>
+						<tr>
+							<td>
+								<div class="input-group"><!-- The User Name -->
+									<span class="col-xs-4" >
+										<input class="form-control" id="first" type="text" placeholder="First Name" size="30px" required>
+									</span>
+									<span class="col-xs-4" style="margin-left: 132px">
+										<input class="form-control" id="last" type="text" placeholder="Last Name" size="30px" required="">
+									</span>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div>
+									<span class="col-6"><!-- The Email -->
+										<input class="form-control" type="email" placeholder="emailname@domainname.com" required="">
+									</span>
+									
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="input-group"><!-- The Password -->
+									<span class="col-xs-4">
+										<input class="form-control" id="pass" type="password" placeholder="Password" size="30px" required>
+									</span>
+									<span class="col-xs-4" style="margin-left: 132px">
+										<input class="form-control" id="rPass" type="password" placeholder="Re-password" size="30px" onmouseout="Equality()" required >
+
+									</span>
+									<span id="checking">//</span>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="input-group"><!-- The Generator -->
+									<span class="col-xs-4" style="margin-top: 25px">
+										<input type="text" value="" id="generate" class="form-control" size="50px" placeholder="Generate Random Password . . ." readonly>
+									</span>
+									<span style="margin-top: 20px; margin-left: 145px">
+										<input type="button" value="Generate" class="btn btn-outline-secondary btn-lg" onclick="random()">
+									</span>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="input-group" style="margin-top: 10px"><!-- The Gander -->
+									<span style="background-color: rgba(10,10,10,0.7); color:gray;border-radius: 5px ; height: 50px; font-size: 25px">
+										 &#160;Gander : &#160; 
+									</span>
+									<span class="input-group" style="margin-top: -3em; margin-left: 300px">
+										<span class="input-group-text">
+											<input type="radio" name="gender" class="input-group-text" checked>
+											<span>Male</span>
+										</span>
+									<span class="input-group" style=" margin-left: 280px; margin-top: -2.7em;height: 45px" >
+										<span class="input-group-text">
+											<input type="radio" name="gender" class="input-group-text">
+											<span>Female</span>
+										</span>
+									</span>
+							
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="input-group"><!-- The Accepting -->
+									<span class="input-group-text" style="margin-top: 20px">
+										<input type="checkbox" required>&#160;
+										<span required> I Accept All Terms</span>
+									</span>
+									<input type="submit" id="btn" onclick="Ok()" class="btn btn-success btn-lg btn-block" value="Make Account Now!">
+								</div>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+		
+								<!-- Ending The Register Body-->
+		<footer align="center" style="color: #FFF">Copyright &copy; #Robot# "Future University in Egypt"</footer>
+		<script type="text/javascript" src="jQuiry.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="JS.js"></script>
+	</body>
+</html>
