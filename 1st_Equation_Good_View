@@ -1,0 +1,180 @@
+html
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IT_Equation</title>
+		<style type="text/css">
+			body {
+				background-color: #000;
+			}
+			#ground{
+				width: 800px;
+				height: 200px;
+				background-color: gray;
+				border-radius: 7px;
+				margin-left: 280px;
+				margin-top: 100px;
+			}
+			#input{
+				margin-left: 200px;
+				border-radius: 7px;
+				height: 25px;
+			}
+			#input:hover{
+				border-color: rgba(150,0,0,0.7);
+			}
+			#button{
+				width: 400px;
+				height: 70px;
+				background-color: #333;
+				border-radius: 5px;
+			}
+			#button:hover{
+				background-color: #111;
+				cursor: pointer;
+			}
+			.par{
+				color: #0A0;
+				font-size: 30px;
+				margin-top: 15px
+			}
+		</style>
+	</head>
+	<body>
+
+		<h1 style="color: #A00;margin-top: 100px" align="center"><strong>Welcome In My Calculator</strong></h1>
+		<div id="ground">
+			<br>
+			<h3 align="center">Here Write The Equation '1st degree'</h3>
+			<hr style="width: 700px; border-color: red">
+			<input type="text" id="input" size="50px" placeholder="Here...">
+			<div id="result" align="center" style="margin-top: 30px;color: rgba(255,0,0,0.9);text-shadow: 1px 1px 0.3px">The result</div>
+		</div>
+		<div align="center" style="margin-top: 100px">
+			<button id="button" onclick="press()"><p class="par">Calculate Now !</p></button>
+		</div>
+		<script type="text/javascript" src="JS.js"></script>
+	</body>
+</html>
+--------------------------
+js
+function press()
+{
+	var input = document.getElementById("input").value;
+	var count = 0;
+	var numCounter_First_Time = 0;
+	var numPosition = 0;
+	var X_HAS_NO_NUMBERS;
+	var result;
+
+	var number = [];
+	var sign = [];
+
+	if(input.charAt(0) != '+' && input.charAt(0) != '-'){
+
+		input = '+' + input;
+		
+	}
+
+	console.log("The InputValue Is : " + input + " line >16<");
+
+	for(count = 0; count < input.length; ++count){
+
+		console.log("The Value Is : " + input.charAt(count) + " round " + (count + 1));
+
+		
+
+		if(input.charAt(count) == '-' || input.charAt(count) == '+'){
+		
+
+			sign.push(input.charAt(count));
+
+			X_HAS_NO_NUMBERS = true;
+
+			console.log(sign);
+
+		}
+
+		else if(input.charAt(count) != '='){
+
+			if(input.charAt(count) != 'x'){
+
+				X_HAS_NO_NUMBERS = false;
+
+				if(numCounter_First_Time == 0){
+
+					number.push(input.charAt(count));
+
+					console.log(number);
+
+					++numCounter_First_Time;
+				}
+				else{
+
+					number[numPosition] += input.charAt(count);
+
+					console.log(number);
+					
+				}
+
+				
+
+			}
+			else if(input.charAt(count) == 'x'){
+
+				if(X_HAS_NO_NUMBERS == true){
+
+					number.push('1');
+					console.log(number);
+					
+				}
+				else{
+
+					++numPosition;
+					numCounter_First_Time = 0;
+				}
+			}
+		}
+
+		else if(input.charAt(count) == '='){
+
+			result = input.substring(count + 1);
+
+			break;
+
+		}
+
+	}
+
+	console.log("The number length Is : " + number.length );
+
+	for(count = 0; count < number.length; ++count){
+
+		number[count] = parseInt(number[count]);
+
+	}
+
+
+	var finalX = 0;
+
+	for(count = 0; count < number.length; ++count)
+	{
+
+		switch (sign[count]){
+
+			case '-':
+				finalX -= number[count];
+				break;
+			case '+':
+				finalX += number[count];
+				break;
+		}
+	}
+
+	document.getElementById('result').innerHTML = "The Result Is : X = " + (result / finalX);  
+
+}
+
+
+
+// -5x+4x+11x-x=9
